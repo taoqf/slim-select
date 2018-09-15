@@ -30,7 +30,7 @@
 		"clean": "del-cli ./dist/",
 		"lint": "tslint -p tsconfig.json",
 		"compile-css": "node-sass --output-style expanded  ./sass/slimselect.scss ./dist/slimselect.css && node-sass --output-style compressed ./sass/slimselect.scss ./dist/slimselect.min.css",
-		"build": "npm run clean && npm run lint && npm run compile-ts && webpack --config webpack.build.config.js && tsc -m umd",
+		"build": "npm run clean && npm run lint && npm run compile-ts && webpack --config webpack.build.config.js && tsc -m umd && npm run compile-css",
 		"compile-ts": "tsc",
 		"dev": "vue-build dev",
 		"prod": "sh prod.sh",
