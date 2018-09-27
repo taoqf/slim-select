@@ -10,15 +10,15 @@ export interface optgroup {
 }
 
 export interface option {
-	id: string;
-	value: string;
+	id?: string;
+	value?: string;
 	text: string;
-	innerHTML: string;
-	selected: boolean;
+	innerHTML?: string;
+	selected?: boolean;
 	display?: boolean;
-	disabled: boolean;
-	placeholder: string;
-	data: { [attr: string]: string; };
+	disabled?: boolean;
+	placeholder?: string;
+	data?: { [attr: string]: string; };
 	[key: string]: string | boolean | any;
 }
 
@@ -128,7 +128,7 @@ export default class data {
 		}
 	}
 
-	public newOption(info: any): option {
+	public newOption(info: option): option {
 		return {
 			data: (info.data ? info.data : {}),
 			disabled: (info.disabled ? info.disabled : false),

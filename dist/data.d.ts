@@ -9,15 +9,15 @@ export interface optgroup {
     options: option[];
 }
 export interface option {
-    id: string;
-    value: string;
+    id?: string;
+    value?: string;
     text: string;
-    innerHTML: string;
-    selected: boolean;
+    innerHTML?: string;
+    selected?: boolean;
     display?: boolean;
-    disabled: boolean;
-    placeholder: string;
-    data: {
+    disabled?: boolean;
+    placeholder?: string;
+    data?: {
         [attr: string]: string;
     };
     [key: string]: string | boolean | any;
@@ -35,7 +35,7 @@ export default class data {
     getSelected(): option | option[];
     removeFromSelected(value: string, type?: string): void;
     onDataChange(): void;
-    newOption(info: any): option;
+    newOption(info: option): option;
     addToSelected(value: string, type?: string): void;
     setSelected(value: string | string[], type?: string): void;
     parseSelectData(): void;
