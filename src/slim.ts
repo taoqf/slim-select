@@ -207,7 +207,7 @@ export default class slim {
 			return;
 		}
 
-		if (this.main.selected() === '') {
+		if (!this.main.selected()) {
 			this.singleSelected.deselect.classList.add('ss-hide');
 		} else {
 			this.singleSelected.deselect.classList.remove('ss-hide');

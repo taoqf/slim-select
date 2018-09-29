@@ -126,17 +126,26 @@ export class SlimSelect {
 		if (select.tagName !== 'SELECT') { throw new Error('Element isnt of type select'); }
 	}
 
-	public selected(): string | string[] {
+	public selected() {
 		if (this.config.isMultiple) {
 			const selected = this.data.getSelected() as option[];
 			const outputSelected = [];
 			for (let i = 0; i < selected.length; i++) {
-				outputSelected.push(selected[i].value);
+				const s = selected[i];
+				outputSelected.push({
+					data: { ...s.data },
+					text: s.text,
+					value: s.value
+				});
 			}
 			return outputSelected;
 		} else {
 			const selected = this.data.getSelected() as option;
-			return (selected ? selected.value : '');
+			return selected ? {
+				data: { ...selected.data },
+				text: selected.text,
+				value: selected.value
+			} : null;
 		}
 	}
 
