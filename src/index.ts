@@ -95,9 +95,14 @@ export class SlimSelect {
 		}
 
 		// Add onclick listener to document to closeContent if clicked outside
-		document.addEventListener('click', (e: Event) => {
+		document.addEventListener('click', (e: MouseEvent) => {
 			if (!hasClassInTree(e.target as Element, this.config.id)) {
-				this.close();
+				const rect = this.slim.content.getBoundingClientRect();
+				const cx = e.clientX;
+				const cy = e.clientY;
+				if (cx < rect.left || cx > rect.right || cy < rect.top || cy > rect.bottom) {
+					this.close();
+				}
 			}
 		});
 
